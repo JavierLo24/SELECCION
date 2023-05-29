@@ -112,6 +112,13 @@ public class SeleccionController {
 
         return "redirect:/seleccion/listar";
     }
+    
+    @PostMapping("/grupo")
+    public String listarSeleccionesPorGrupo(@ModelAttribute("grupo") String grupo, Model model) {
+        List<Seleccion> seleccion = seleccionrepository.findByGrupo(grupo);
+        model.addAttribute("seleccion", seleccion);
+        return "index";
+    }
 	
 	
 }

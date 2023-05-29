@@ -8,7 +8,14 @@
 <body>
 <h1 class="text-center text-5xl font-semibold">Selecciones</h1>
 <a type="button" class="bg-blue-600 py-3 px-4 rounded-lg mb-2 text-white" th:href="@{/seleccion/new}">Nueva Seleccion</a>
-
+<a type="button" class="bg-blue-600 py-3 px-4 rounded-lg mb-2 text-white" th:href="@{/seleccion/listar}">Volver a la lista</a>
+<div class="max-w-max mx-auto">
+<form th:action="@{/seleccion/grupo}" method="POST">
+  <label for="grupo">Grupo:</label>
+  <input class="border-2 border-black mt-2 pl-2" type="text" id="grupo" name="grupo" />
+  <button class="bg-blue-600 py-3 px-4 rounded-lg" type="submit">Buscar</button>
+</form>
+</div>
 <br>
 <table class="mx-auto">
   <thead>
