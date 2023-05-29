@@ -16,8 +16,8 @@ import lombok.NoArgsConstructor;
 public class Estadio {
 
 	@Id
-	@SequenceGenerator(name="seleccion_id_seq", allocationSize=1)
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seleccion_id_seq")
+	@SequenceGenerator(name="estadio_id_seq", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="estadio_id_seq")
 	private Integer id;
 	private String nombre;
 	private Integer capacidad;
