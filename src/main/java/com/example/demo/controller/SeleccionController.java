@@ -49,8 +49,15 @@ public class SeleccionController {
 		return "index";
 	}
 	
+	@GetMapping("/listar/{id}")
+	public String listarById(@PathVariable("id") Integer id, Model model) {
+		Seleccion seleccion = seleccionrepository.findById(id).orElse(null);
+		model.addAttribute("seleccion", seleccion);
+		return "index";
+	}
+	
 	@GetMapping("/new")
-    public String newBill(Model model) {
+    public String newSelecc(Model model) {
 		Optional<Seleccion> seleccion = Optional.empty();
 		//Seleccion seleccion = new Seleccion();
 	    model.addAttribute("seleccion", seleccion);
@@ -60,7 +67,7 @@ public class SeleccionController {
     }
 
     @PostMapping("")
-    public String createBill(@ModelAttribute("seleccion") Seleccion seleccion, BindingResult result) {
+    public String createSelecc(@ModelAttribute("seleccion") Seleccion seleccion, BindingResult result) {
         if (result.hasErrors()) {
             return "form";
         }
@@ -69,7 +76,7 @@ public class SeleccionController {
     }
 
     @GetMapping("/edit/{id}")
-    public String editBill(@PathVariable("id") Integer id, Model model) {
+    public String editSelecc(@PathVariable("id") Integer id, Model model) {
     	Optional<Seleccion> seleccion = seleccionrepository.findById(id);
         model.addAttribute("seleccion", seleccion);
         List<Continente> continente = continenterepository.findAll();
@@ -78,7 +85,7 @@ public class SeleccionController {
     }
 
     @PutMapping("/{id}")
-    public String updateBill(@PathVariable("id") Integer id, @ModelAttribute("seleccion") Seleccion seleccion, BindingResult result) {
+    public String updateSelecc(@PathVariable("id") Integer id, @ModelAttribute("seleccion") Seleccion seleccion, BindingResult result) {
         if (result.hasErrors()) {
             return "form";
         }
@@ -87,7 +94,7 @@ public class SeleccionController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteBill(@PathVariable("id") Integer id) {
+    public String deleteSelecc(@PathVariable("id") Integer id) {
     	seleccionrepository.deleteById(id);
         return "redirect:/seleccion/listar";
     }
