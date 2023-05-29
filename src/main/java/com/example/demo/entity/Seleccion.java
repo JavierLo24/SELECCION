@@ -27,6 +27,6 @@ public class Seleccion {
 	private String nombre;
 	@ManyToOne
 	@JoinColumn(name="continente_id", nullable=false)
-	private Continente continente_id;
+	private Continente continente;
 	private String grupo;
 }

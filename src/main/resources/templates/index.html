@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Selecciones</title>
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-
+<h1 class="text-center text-5xl font-semibold">Selecciones</h1>
+<a type="button" class="bg-blue-600 py-3 px-4 rounded-lg mb-2 text-white" th:href="@{/seleccion/new}">Nueva Seleccion</a>
+<br>
+<table class="mx-auto">
+  <thead>
+    <tr>
+      <th class="border-2 border-black p-3" scope="col">Id</th>
+      <th class="border-2 border-black p-3" scope="col">Nombre</th>
+      <th class="border-2 border-black p-3" scope="col">Continente</th>
+      <th class="border-2 border-black p-3" scope="col">Grupo</th>
+      <th class="border-2 border-black p-3" scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="seleccion: ${seleccion}">
+      <td class="border-2 border-black p-3" th:text="${seleccion.id}"></td>
+      <td class="border-2 border-black p-3" th:text="${seleccion.nombre}"></td>
+      <td class="border-2 border-black p-3" th:text="${seleccion.continente != null ? seleccion.continente.nombre : ''}"></td>
+      <td class="border-2 border-black p-3" th:text="${seleccion.grupo}"></td>
+	  <td class="border-2 border-black p-3">
+	  <a type="button" class="bg-sky-600 py-3 px-4 rounded-lg" th:href="@{/seleccion/edit/{id}(id=${seleccion.id})}">Editar</a>
+	  <a type="button" class="bg-red-600 py-3 px-4 rounded-lg" th:href="@{/seleccion/delete/{id}(id=${seleccion.id})}">Eliminar</a>
+	  </td>	
+    </tr>
+  </tbody>
+</table>
+<br>
 </body>
 </html>
