@@ -8,6 +8,7 @@
 <body>
 <h1 class="text-center text-5xl font-semibold">Selecciones</h1>
 <a type="button" class="bg-blue-600 py-3 px-4 rounded-lg mb-2 text-white" th:href="@{/seleccion/new}">Nueva Seleccion</a>
+
 <br>
 <table class="mx-auto">
   <thead>
@@ -28,6 +29,7 @@
 	  <td class="border-2 border-black p-3">
 	  <a type="button" class="bg-sky-600 py-3 px-4 rounded-lg" th:href="@{/seleccion/edit/{id}(id=${seleccion.id})}">Editar</a>
 	  <a type="button" class="bg-red-600 py-3 px-4 rounded-lg" th:href="@{/seleccion/delete/{id}(id=${seleccion.id})}">Eliminar</a>
+	  <a type="button" class="bg-green-400 py-3 px-4 rounded-lg" th:href="@{/seleccion/listar/{id}(id=${seleccion.id})}">Ver a detalle</a>
 	  </td>	
     </tr>
   </tbody>

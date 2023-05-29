@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.entity.Continente;
+import com.example.demo.entity.Resultado;
 import com.example.demo.entity.Seleccion;
 import com.example.demo.repository.ContinenteRepository;
 import com.example.demo.repository.EstadioRepository;
@@ -95,7 +96,20 @@ public class SeleccionController {
 
     @GetMapping("/delete/{id}")
     public String deleteSelecc(@PathVariable("id") Integer id) {
-    	seleccionrepository.deleteById(id);
+    	// Obtener la selección a eliminar
+      /*  Seleccion seleccion = seleccionrepository.findById(id).orElse(null);
+
+        if (seleccion != null) {
+            // Obtener los resultados asociados a la selección
+            List<Resultado> resultados = resultadorepository.findBySeleccion(seleccion);
+
+            // Eliminar los resultados asociados
+            resultadorepository.deleteAll(resultados);
+
+            // Eliminar la selección*/
+            seleccionrepository.deleteById(id);
+        //}
+
         return "redirect:/seleccion/listar";
     }
 	
